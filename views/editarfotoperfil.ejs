@@ -1,0 +1,61 @@
+<%- include ./navegacion.ejs %> 
+
+  <form action="/guardarfotoperfil" method="post" enctype="multipart/form-data">
+
+    <!--Crear publicacion-->
+    <div class="container-fluid contenedor-crearpost">
+      <div class="row justify-content-center">
+        <div class="col-12 d-flex justify-content-center">
+          <h2>Subir foto de perfil</h2>
+        </div>
+      </div>
+
+
+      <div class="row justify-content-center">
+
+        <div class="col-md-8 d-flex justify-content-center border">
+          <div class="card mb-3" style="width: 540px;">
+            <div class="row g-0">
+              <div class="col-md-4 d-flex justify-content-center">
+                <img src="../images/icon/icon-foto-perfil.png" class="img-fluid rounded-start" alt="icon-upload.png">
+              </div>
+              <div class="col-md-8">
+                <div class="card-body">
+                  <h5 class="card-title">Seleccione la foto a subir</h5>
+                  <p class="card-text">Formatos aceptados: .jpg .jpeg .png</p>
+                  <input class="form-control-file" type="file" name="fotoperfil" accept=".jpg, .jpeg, .png">
+                  <p class="card-text"><small class="text-muted">Tamaño máximo de la foto 15MB</small></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="container-fluid contenedor-previsualizador-imagen">
+      <div class="row justify-content-center">
+        <div class="col-12 col-md-8 d-flex justify-content-center border">
+          <h4>Visualización previa</h4>
+        </div>
+        <div class="col-12 col-md-8 d-flex justify-content-center border">
+          <img src="../images/icon/icon-image.png" class="img-fluid rounded-start" alt="icon-image.png">
+        </div>
+      </div>
+    </div>
+
+    <div class="container-fluid contenedor-botones">
+      <div class="row justify-content-center">
+        <div class="col-12 col-md-8 gap-3 d-flex justify-content-center border">
+          <div class="btn-group-vertical" role="group" aria-label="Vertical button group">
+            <button class="btn btn-warning" type="submit">Guardar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+  </form>
+
+<%- include ./leyendacreador.ejs %> 

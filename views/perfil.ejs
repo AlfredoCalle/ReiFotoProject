@@ -1,0 +1,139 @@
+<%- include ./navegacion.ejs %> 
+
+    <!--Perfil-->
+    <div class="container-fluid container-informacion">
+      <div class="row">
+        <div class="col-12 d-flex justify-content-center">
+          
+
+          <div class="card border-0 mb-3" style="max-width: 540px;">
+            <div class="row g-0">
+              <div class="col-4 d-flex justify-content-center align-items-center">
+                <% if (usuario.fotoperfil_url) { %>
+                  <img src="<%=usuario.fotoperfil_url%>" class="img-fluid rounded-circle" style="width: 80%;height: 80%;border-radius: 50%; background-size: cover;object-fit: cover;" alt="<%= usuario.fotoperfil %>">
+                <% } else {%>
+                  <img src="/images/icon/icon-foto-perfil.png" class="img-fluid rounded-start" alt="icon-upload.png">
+                <% } %>
+                
+              </div>
+              <div class="col-8">
+                <div class="card-body">
+
+                  <div class="row">
+                    <div class="col-10">
+                      <h5 class="card-title"><%=usuario.usuario%></h5>
+                    </div>
+                    <div class="col-2">
+
+                      <div class="dropdown">
+                        <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                          <!-- <b>⋮</b> -->
+                        </button>
+                        <ul class="dropdown-menu">
+                          <li>
+                            <button class="dropdown-item" type="button" data-bs-toggle="modal" data-bs-target="#modal-editar-usuario">
+                              Cambiar nombre de usuario
+                            </button>
+                          </li> 
+                          <li>
+                            <button class="dropdown-item" type="button" data-bs-toggle="modal" data-bs-target="#modal-foto-perfil">
+                              Cambiar foto de perfil
+                            </button>
+                          </li>
+                          <li>
+                            <button class="dropdown-item" type="button" data-bs-toggle="modal" data-bs-target="#modal-descripcion-usuario">
+                              Cambiar descripción
+                            </button>
+                          </li>
+                        </ul>
+                      </div>
+
+                    </div>
+                  </div>
+
+                  
+                  <div class="row  gy-3">
+                    <!-- # Publicaciones -->
+                    <div class="col-4 ">
+                      <div class="row justify-content-center">
+                        <div class="col-12 d-flex justify-content-center"> <b> <%=usuario.cantidadPublicaciones%></b> </div>
+                      </div>
+                      <div class="row justify-content-center">
+                        <div class="col-12 d-flex justify-content-center">Fotos</div>
+                      </div>
+                    </div>
+
+                    <!-- # Seguidores -->
+                    <div class="col-4 ">
+                      <div class="row justify-content-center">
+                        <div class="col-12 d-flex justify-content-center"> <b> <%=usuario.cantidadSeguidores%></b> </div>
+                      </div>
+                      <div class="row justify-content-center">
+                        <div class="col-12 d-flex justify-content-center">Seguidores</div>
+                      </div>
+                    </div>
+
+                    <!-- # Seguidos -->
+                    <div class="col-4 ">
+                      <div class="row justify-content-center">
+                        <div class="col-12 d-flex justify-content-center"> <b> <%=usuario.cantidadSeguidos%></b> </div>
+                      </div>
+                      <div class="row justify-content-center">
+                        <div class="col-12 d-flex justify-content-center">Seguidos</div>
+                      </div>
+                    </div>
+                    
+                    <p class="card-text"><small class="text-muted"><%=usuario.descripcion%></small></p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+        </div>
+      </div>
+    </div>
+    
+    <!--Publicaciones-->
+    <div class="container-fluid container align-items-center justify-content-center">
+      <div class="row gap-3 justify-content-center">
+        <% if (publicaciones.length > 0) { %>
+
+          <!--Publicaciones de la mas nueva a la antigua-->
+          <% for(let index = publicaciones.length - 1; index >= 0; index-- ) { %>
+            <div class="col-3 d-flex justify-content-center border">
+              <a href="/publicaciones/verPost/<%= publicaciones[index]._id %>" style="display: flex;">
+                <img src="<%= publicaciones[index].imagen_url %>" class="card-img-top img-fluid" alt="<%= publicaciones[index].imagen %>" style="width: 15rem;">
+              </a>
+            </div>
+          <% } %>
+
+          <!--Publicaciones de la mas antigua a la nueva-->
+          <!-- <% publicaciones.forEach(function(publicacion){ %>
+            <div class="col-3 d-flex justify-content-center border">
+              <a href="" style="display: flex;">
+                <img src="http://localhost:3000/images/<%= publicacion.imagen %>" class="card-img-top img-fluid" alt="<%= publicacion.imagen %>" style="width: 15rem;">
+              </a>
+            </div>
+          <% }); %> -->
+
+          <% } else {%>
+            <div class="container">
+              <div class="row justify-content-center">
+                <div class="col-12 d-flex justify-content-center">
+                  <h2>No existen fotos aún</h2>
+                </div>
+              </div>
+            </div>  
+          <% } %>
+      </div>
+    </div>
+
+    <!--Modal cambiar usuario-->
+    <%- include ./modal/editarusuario.modal.ejs %> 
+    <!--Modal cambiar foto perfil-->
+    <%- include ./modal/editarfotoperfil.modal.ejs %> 
+    <!--Modal cambiar descripcion-->
+    <%- include ./modal/editardescripcion.modal.ejs %> 
+
+<%- include ./leyendacreador.ejs %> 

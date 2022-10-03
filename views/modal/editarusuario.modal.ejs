@@ -1,0 +1,29 @@
+<!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal-editar-usuario">
+  Cambiar nombre de usuario
+</button> -->
+
+<div class="modal fade" id="modal-editar-usuario" tabindex="-1" role="dialog" aria-labelledby="modal-title"
+  aria-hidden="true" data-bs-backdrop="static">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modal-title">Cambiar nombre de usuario</h5>
+        <!-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+        </button> -->
+      </div>
+      <div class="modal-body">
+        <form method="post" action="/actualizarNameUsuario" id="formulario-usuario">
+          <div class="form-group">
+            <label for="nombre-usuario" class="col-form-label">Usuario</label>
+            <input type="text" class="form-control" id="nombre-usuario" name="usuario" value="<%=usuario.usuario%>" required>
+          </div>
+        </form>
+        <br>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancerlar</button>
+        <button class="btn btn-primary" type="submit" form="formulario-usuario">Guardar</button>
+      </div>
+    </div>
+  </div>
+</div>

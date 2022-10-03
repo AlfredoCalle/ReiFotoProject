@@ -1,0 +1,92 @@
+<%- include ./navegacion.ejs %> 
+
+  <form action="/publicaciones/crearpost" method="post" enctype="multipart/form-data">
+
+    <!--Crear publicacion-->
+    <div class="container-fluid contenedor-crearpost">
+
+      <div class="row justify-content-center">
+        <div class="col-12 d-flex justify-content-center">
+          <h2>Subir foto</h2>
+        </div>
+      </div>
+
+
+      <div class="row justify-content-center">
+
+        <div class="col-md-8 d-flex justify-content-center ">
+          <div class="card mb-3 border-0" style="width: 540px;">
+            <div class="row g-0">
+              <div class="col-md-4 d-flex justify-content-center">
+                <img src="/images/icon/icon-upload.png" class="img-fluid rounded-start" alt="icon-upload.png">
+              </div>
+              <div class="col-md-8">
+                <div class="card-body">
+                  <h5 class="card-title">Seleccione la foto a subir</h5>
+                  <p class="card-text">Formatos aceptados: jpg, jpeg y png</p>
+
+                  <input id="foto" class="form-control-file" type="file" name="imagen" accept=".jpg, .jpeg, .png">
+
+                  <p class="card-text"><small class="text-muted">Tamaño máximo de la foto 15MB</small></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-fluid contenedor-previsualizador-imagen">
+      <div class="row justify-content-center">
+        <div class="col-12 col-md-8 d-flex justify-content-center ">
+          <h4>Visualización previa</h4>
+        </div>
+        <div class="col-12 col-md-8 d-flex justify-content-center ">
+          <img id="preview-foto" src="/images/icon/icon-image.png" class="img-fluid rounded-start" alt="icon-image.png" style="max-height: 500px;">
+        </div>
+      </div>
+    </div>
+
+    <div class="container-fluid contenedor-formulario">
+      <div class="row justify-content-center">
+        <div class="col-12 col-md-8 ">
+
+          <div class="form-group">
+            <label for="descripcion-group">Descripción</label>
+            <textarea type="text" class="form-control" id="descripcion-group" name="descripcion" placeholder="Ingrese descripción" rows="3" required></textarea>
+          </div>
+
+          <!-- <div class="form-group">
+            <label for="descripcion-group">Descripción</label>
+            <input type="text" class="form-control" id="descripcion-group" name="descripción" placeholder="Ingrese descripción">
+          </div> -->
+
+        </div>
+      </div>
+    </div>
+
+    
+
+    <div class="container-fluid contenedor-botones">
+      <div class="row justify-content-center">
+        <div class="col-12 col-md-8 gap-3 d-flex justify-content-center ">
+          <div class="btn-group-vertical" role="group" aria-label="Vertical button group">
+            <a href="/" class="btn btn-danger">Cancelar</a>
+            <!-- <form class="form-inline" method="get" action="/">
+              <button class="btn btn-danger" type="submit">Cancelar</button>
+            </form> -->
+          </div>
+
+          <div class="btn-group-vertical" role="group" aria-label="Vertical button group">
+            <button class="btn btn-warning" type="submit">Publicar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+  </form>
+
+  <script src="../javascripts/subirfoto.accion.js"></script>
+
+<%- include ./leyendacreador.ejs %> 

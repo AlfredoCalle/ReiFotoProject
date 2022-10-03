@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>ReiFoto</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+
+  <style>
+    @media (min-width: 768px) {
+      .alto-100 {
+        height: 100vh;
+      }
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <div class="container-post-login  d-grid align-items-center justify-content-center  alto-100">
+    <div class="row">
+      <!--Login-->
+      <div class="col-12 d-flex justify-content-center align-self-center">
+        <div class="card border-0" style="width: 25rem; height: 25rem;">
+          <div class="row vh-100 justify-content-center align-items-center">
+            <div class="col-12 d-grid gap-4">
+              <div class="row justify-content-center">
+                <div class="col-8 d-flex justify-content-center">
+                  <img src="/images/logo.png" class="card-img-top" alt="logo.png">
+                </div>
+              </div>
+              <div class="card-body">
+                <form class="d-grid gap-3" method="post" action="/auth">
+                  <div class="form-group">
+                    <input type="email" name="email" class="form-control" id="exampleInputEmail1"
+                      aria-describedby="emailHelp" placeholder="Email" required>
+                  </div>
+                  <div class="form-group">
+                    <input type="password" name="password" class="form-control" id="exampleInputPassword1"
+                      placeholder="Contraseña" required>
+                  </div>
+                  <button type="submit" class="btn btn-primary">Entrar</button>
+                  <p>¿No tienes una cuenta? <a href="/registrarse">Regístrate</a></p>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--Leyenda-->
+    <div class="row justify-content-center">
+      <div class="col-12 d-flex justify-content-center">
+        <p class="card-text"><small class="text-muted">© 2022 Alfredo Calle Aguilar</small></p>
+      </div>
+    </div>
+  </div>
+
+</body>
+
+</html>

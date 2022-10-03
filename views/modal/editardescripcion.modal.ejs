@@ -1,0 +1,27 @@
+<!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal-descripcion-usuario">
+  Cambiar descripción
+</button> -->
+
+<div class="modal fade" id="modal-descripcion-usuario" tabindex="-1" role="dialog" aria-labelledby="modal-title"
+  aria-hidden="true" data-bs-backdrop="static">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modal-title">Cambiar descripción</h5>
+      </div>
+      <div class="modal-body">
+        <form id="form-descripcion-usuario" method="post" action="/actualizarDescripcion">
+          <div class="form-group">
+            <label for="message-text" class="col-form-label">Descripción:</label>
+            <textarea name="descripcion" class="form-control" id="message-text" required><%=usuario.descripcion%></textarea>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
+        <form id="form-descripcion-usuario">
+        <button type="submit" class="btn btn-primary" form="form-descripcion-usuario">Guardar</button>
+      </div>
+    </div>
+  </div>
+</div>

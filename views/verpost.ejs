@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>ReiFoto</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"></script>
+
+</head>
+
+<body>
+
+  <!-- Navegacion -->
+  <nav class="navbar navbar-light bg-light">
+    <a class="navbar-brand" href="/inicio">
+      <img src="/images/logo.png"  height="30" alt="logo.png">
+    </a>
+
+    <ul class="nav justify-content-end">
+      <li class="nav-item">
+        <a class="nav-link active" href="/inicio">Inicio</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/crear">Subir</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/perfil">Perfil</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text-danger" href="/cerrarsesion">Cerrar Sesión</a>
+      </li>
+    </ul>
+  </nav>
+
+  <br>
+
+  <!--Estp es verpost.ejs-->
+    <!--Publicaciones-->
+    <div class="container-fluid container-publicaciones">
+      <div class="row justify-content-center">
+         
+        <div class="col-12 col-md-8 d-flex justify-content-center">
+          <div class="card" style="width: 24rem;">
+            <img src="<%= publicacion.imagen_url %>" class="card-img-top" alt="">
+            <div class="card-body">
+
+              <div class="row">
+                <div class="col-12">
+                  <p><b><%= publicacion.likes %> Me gusta</b></p>
+                </div>
+              </div>
+
+              
+              
+              <p class="card-text"><%= publicacion.descripcion %></p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="container-fluid contenedor-botones">
+      <div class="row justify-content-center">
+        <div class="col-12 col-md-8 gap-3 d-flex justify-content-center">
+          <div class="btn-group-vertical" role="group" aria-label="Vertical button group">
+            <a href="/publicaciones/eliminarPost/<%= publicacion._id %>" class="btn btn-danger">Eliminar Foto</a>
+            <!-- <form class="form-inline" method="get" action="/">
+              <button class="btn btn-danger" type="submit">Cancelar</button>
+            </form> -->
+          </div>
+
+          <div class="btn-group-vertical" role="group" aria-label="Vertical button group">
+            <!-- <button class="btn btn-warning" type="submit">Editar</button> -->
+            <a href="/publicaciones/editar/<%= publicacion._id %>" class="btn btn-warning">Editar Foto</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+<%- include ./leyendacreador.ejs %> 

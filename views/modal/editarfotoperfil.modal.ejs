@@ -1,0 +1,47 @@
+<!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal-foto-perfil">
+  Cambiar foto de perfil
+</button> -->
+
+<div class="modal fade" id="modal-foto-perfil" tabindex="-1" role="dialog" aria-labelledby="modal-title"
+  aria-hidden="true" data-bs-backdrop="static">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modal-title">Cambiar foto de perfil</h5>
+      </div>
+      <div class="modal-body">
+        <form method="post" action="/guardarfotoperfil" enctype="multipart/form-data" id="formulario-foto-perfil">
+          <div class="form-group">
+
+            <div class="row g-3">
+              <div class="col-md-4 d-flex justify-content-center">
+                
+                <% if (usuario.fotoperfil_url) { %>
+                  <img src="<%=usuario.fotoperfil_url%>" id="preview-foto" class="img-fluid rounded-circle" style="width: 80%;height: 80%;border-radius: 50%; background-size: cover; object-fit: cover;" alt="<%= usuario.fotoperfil %>">
+                <% } else {%>
+                  <img src="../images/icon/icon-foto-perfil.png" id="preview-foto" class="img-fluid rounded-start" alt="icon-upload.png">
+                <% } %>
+
+                <!-- <img id="preview-foto" src="../images/icon/icon-foto-perfil.png" class="img-fluid rounded-start" alt="icon-upload.png"> -->
+              </div>
+              <div class="col-md-8">
+                <div class="card-body">
+                  <label for="foto-perfil" class="col-form-label"> <h5>Seleccione la foto a subir</h5></label>
+                  <p class="card-text">Formatos aceptados: jpg, jpeg y png</p>
+                  <input id="foto-perfil" class="form-control-file" type="file" name="fotoperfil" accept=".jpg, .jpeg, .png" required>
+                  <p class="card-text"><small class="text-muted">Tamaño máximo de la foto 15MB</small></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancerlar</button>
+        <button class="btn btn-primary" type="submit" form="formulario-foto-perfil">Guardar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="javascripts/button.acciones.js"></script>

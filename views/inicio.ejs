@@ -1,0 +1,85 @@
+<%- include ./navegacion.ejs %> 
+
+    <!--Publicaciones-->
+    <div class="container-fluid container-publicaciones">
+      <div class="row justify-content-center">
+        <% if (publicaciones.length > 0) { %>
+          <!--Publicaciones de la mas antigua a la nueva-->
+          <!-- <% publicaciones.forEach(function(publicacion){ %>
+            <div class="col-12 col-md-8 d-flex justify-content-center border">
+              <div class="card" style="width: 24rem;">
+                <h5 class="card-title">Usuario: <a href=""><%= publicacion.usuarioID.nombre %></a> </h5>
+                <img src="http://localhost:3000/images/<%= publicacion.imagen %>" class="card-img-top" alt="">
+                <div class="card-body">
+
+                  <div class="row">
+                    <div class="col-1">
+                      <a class="" href="#">
+                        <img src="../images/icon/icon-corazon.png"  height="25" alt="icon-corazon.png">
+                      </a>
+                    </div>
+                    <div class="col-11">
+                      <p><b><%= publicacion.likes %> Me gusta</b></p>
+                    </div>
+                  </div>
+
+                  
+                  
+                  <p class="card-text"><%= publicacion.descripcion %></p>
+                </div>
+              </div>
+            </div>
+          <% }); %> -->
+          
+          <!--Publicaciones de la mas nueva a la antigua-->
+          <% for( let index = publicaciones.length - 1; index >= 0; index-- ) { %>
+            
+            <div class="col-12 col-md-8 d-flex justify-content-center">
+              <div class="card" style="width: 24rem;">
+                <h5 class="card-title"><a href="/usuarios/<%= publicaciones[index].usuarioID._id %>"><%= publicaciones[index].usuarioID.usuario %></a> </h5>
+                <img src="<%= publicaciones[index].imagen_url %>" class="card-img-top" alt="">
+                <div class="card-body">
+
+                  <div class="row">
+                    <div class="col-2">
+                      <form action="/publicaciones/darLike" method="post" >
+                        <input type="hidden" name="idPublicacion" value="<%= publicaciones[index]._id %>">
+                        <button id="botonLike" class="btn btn-default swap" type="submit">
+                          <img src="/images/icon/icon-corazon.png"  height="25" alt="icon-corazon.png">
+                        </button>
+                      </form>
+                      <!-- <input type="hidden" name="idPublicacion" value="<%= publicaciones[index]._id %>">
+                      <a class="" href="" id="btn-like">
+                        <img src="../images/icon/icon-corazon.png"  height="25" alt="icon-corazon.png">
+                      </a> -->
+                    </div>
+                    <div class="col-10">
+                      <p><b> <b id="preview_like"><%= publicaciones[index].likes %></b> Me gusta</b></p>
+                    </div>
+                  </div>
+
+                  
+                  
+                  <p class="card-text"><%= publicaciones[index].descripcion %></p>
+                </div>
+              </div>
+            </div>
+
+          <% } %>
+
+        <!--Si no existe publicaciones aún-->
+        <% } else {%>
+          <div class="container">
+            <div class="row justify-content-center">
+              <div class="col-12 d-flex justify-content-center">
+                <h2>No existen publicaciones aún</h2>
+              </div>
+            </div>
+          </div>  
+        <% } %>
+
+      </div>
+    </div>
+
+
+<%- include ./leyendacreador.ejs %> 

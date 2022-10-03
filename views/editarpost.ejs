@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>ReiFoto</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"></script>
+
+</head>
+
+<body>
+
+  <!-- Navegacion -->
+  <nav class="navbar navbar-light bg-light">
+    <a class="navbar-brand" href="/inicio">
+      <img src="/images/logo.png"  height="30" alt="logo.png">
+    </a>
+
+    <ul class="nav justify-content-end">
+      <li class="nav-item">
+        <a class="nav-link active" href="/inicio">Inicio</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/crear">Subir</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/perfil">Perfil</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text-danger" href="/cerrarsesion">Cerrar Sesión</a>
+      </li>
+    </ul>
+  </nav>
+
+  <br>
+
+
+  <!--Esto es Editarpost.ejs-->
+  <form action="/publicaciones/actualizarPost" method="post">
+
+    <!--Crear publicacion-->
+    <div class="container-fluid contenedor-crearpost">
+
+      <div class="row justify-content-center">
+        <div class="col-12 d-flex justify-content-center">
+          <h2>Editar Publicación</h2>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-fluid contenedor-previsualizador-imagen">
+      <div class="row justify-content-center">
+        <div class="col-12 col-md-8 d-flex justify-content-center">
+          <h4>Visualización previa</h4>
+        </div>
+        <div class="col-12 col-md-8 d-flex justify-content-center">
+          <input name="idPublicacion" type="hidden" value="<%= publicacion._id %>">
+          <img src="<%= publicacion.imagen_url %>" class="img-fluid rounded-start" alt="<%= publicacion.imagen %>" style="max-height: 500px;">
+        </div>
+      </div>
+    </div>
+
+    <div class="container-fluid contenedor-formulario">
+      <div class="row justify-content-center">
+        <div class="col-12 col-md-8">
+
+          <div class="form-group">
+            <label for="descripcion-group">Descripción</label>
+            <textarea type="text" class="form-control" id="descripcion-group" name="descripcion" placeholder="Ingrese descripción" rows="3" required><%= publicacion.descripcion %></textarea>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-fluid contenedor-botones">
+      <div class="row justify-content-center">
+        <div class="col-12 col-md-8 gap-3 d-flex justify-content-center">
+          <div class="btn-group-vertical" role="group" aria-label="Vertical button group">
+            <a href="/" class="btn btn-danger">Cancelar</a>
+          </div>
+
+          <div class="btn-group-vertical" role="group" aria-label="Vertical button group">
+            <button class="btn btn-warning" type="submit">Guardar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+  </form>
+
+<%- include ./leyendacreador.ejs %> 
