@@ -73,14 +73,23 @@
       <div class="row gap-3 justify-content-center">
         <% if (publicaciones.length > 0) { %>
 
-          <% publicaciones.forEach(function(publicacion){ %>
+          <!--Publicaciones de la mas nueva a la antigua-->
+          <% for(let index = publicaciones.length - 1; index >= 0; index-- ) { %>
+            <div class="col-3 d-flex justify-content-center border">
+              <a href="/publicaciones/verPostamigo/<%= publicaciones[index]._id %>" style="display: flex;">
+                <img src="<%= publicaciones[index].imagen_url %>" class="card-img-top img-fluid" alt="<%= publicaciones[index].imagen %>" style="width: 15rem;">
+              </a>
+            </div>
+          <% } %>
+
+          <!--Publicaciones de la mas antigua a la nueva-->
+          <!-- <% publicaciones.forEach(function(publicacion){ %>
             <div class="col-3 d-flex justify-content-center border">
               <a href="/publicaciones/verPostamigo/<%= publicacion._id %>" style="display: flex;">
                 <img src="<%= publicacion.imagen_url%>" class="card-img-top img-fluid" alt="<%= publicacion.imagen %>" style="width: 15rem;">
               </a>
-              <!-- <img src="http://localhost:3000/images/<%= publicacion.imagen %>" class="card-img-top img-fluid" alt="<%= publicacion.imagen %>" style="width: 15rem;"> -->
             </div>
-          <% }); %>
+          <% }); %> -->
 
           <% } else {%>
             <div class="container">
